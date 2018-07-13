@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 import Navigation from './components/Navigation/Navigation';
-import Navigation from './components/faceRecognition/faceRecognition';
+// import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
@@ -29,23 +29,23 @@ class App extends Component {
     super();
     this.state = {
       input: '',
-      imageURL: ''
+      // imageURL: ''
 
     }
   }
 
-  onInputChange = (event) {
-   this.setstate({input: event.target.value});
+  onInputChange = (event) => {console.log(event.target.value)
+   // this.setstate({input: event.target.value});
   }
-
-onButtonSubmit = () => {
-  this.setstate({imageURL: this.state.input})
-  app.models.predict(clarifai.COLOR_MODEL, this.state.input).then(
+// Clarifai.COLOR_MODEL, this.state.input
+onButtonSubmit = () => {console.log("click");
+  // this.setstate({imageURL: this.state.input})
+ app.models.predict("a403429f2ddf4b49b307e318f00e528b", "https://samples.clarifai.com/face-det.jpg").then(
     function(response) {
-      // do something with response
+      console.log(response);
     },
     function(err) {
-      // there was an error
+      
     }
   );
 }
@@ -64,7 +64,7 @@ onButtonSubmit = () => {
        onInputChange={this.onInputChange} 
        onButtonSubmit={this.onButtonSubmit}
        />
-        <faceRecognition imageURL ={this.stateimageURL}/>
+      
       </div>
     );
   }
