@@ -38,9 +38,9 @@ class App extends Component {
    this.setState({input: event.target.value});
   }
 
-onButtonSubmit = () => {
+onButtonSubmit = () => {console.log("click")
   this.setState({imageUrl: this.state.input})
- app.models.predict(Clarifai.COLOR_MODEL, this.state.input).then(
+ app.models.predict(Clarifai.FACE_DETECT_MODEL, this.state.input).then(
     function(response) {
       console.log(response);
     },
@@ -64,7 +64,7 @@ onButtonSubmit = () => {
        onInputChange={this.onInputChange} 
        onButtonSubmit={this.onButtonSubmit}
        />
-      <FaceRecognition imageUrl={this.state.imageUrl}/>
+      <FaceRecognition imageUrl={this.state.input}/>
       </div>
     );
   }
