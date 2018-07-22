@@ -12,6 +12,7 @@
     "tachyons": "^4.10.0"
   },
   "scripts": {
+      "postinstall": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

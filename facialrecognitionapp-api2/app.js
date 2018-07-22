@@ -52,7 +52,7 @@ bcrypt.compare('veggies', '$2a$10$LvP8QwOAyHC.EI9XtmpkD.ps7uieOzaV8Nah9WR/q4phci
 });
 
 	if (req.body.email === database.users[0].email && req.body.password === database.users[0].password) {
-     res.json('success');
+     res.json(database.users[0]);
 	} else {
 		res.status(400).json('error logging in');
 	}	
