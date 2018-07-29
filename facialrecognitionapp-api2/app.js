@@ -36,6 +36,8 @@ app.get('/profile/:id', (req, res) => {profile.handleProfile(re, res, db)})
 
 app.put('/image', (req, res) => {image.handleImage(req, res, db)})
 
+app.post('/imageUrl', (req, res) => {image.handleApiCall(req, res)})
+
 app.listen(1337, () => {
 	console.log('app running on port 1337')
 })
